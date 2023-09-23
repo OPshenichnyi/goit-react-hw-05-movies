@@ -1,11 +1,13 @@
 import { reviewsFilmGetAPI } from "components/RequestApi/RequestApi"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { NotFound } from "components/Error/NotFound"
 
 
 export const Reviews = () => {
-  const { id } = useParams()
-  const [reviwes, setReviwes] = useState([])
+  const { id } = useParams();
+  const [reviwes, setReviwes] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     reviewsFilmGetAPI(id).then(resp => {
@@ -15,12 +17,15 @@ export const Reviews = () => {
         }
         setReviwes(resp.data.results)
       }
+    }).catch(err => {
+      setError(true)
     })
 
   }, [id, reviwes])
 
   return (
     <div>
+      {error && <NotFound></NotFound>}
       <ul>
         {reviwes.map(({id, author, content }) => (
           <li key={id}><h3>Autho{author}</h3><p>{content}</p></li> 

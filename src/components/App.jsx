@@ -5,11 +5,9 @@ import { Movies } from "./Page/Movies";
 import { MovieDetails } from "./MovieDetails/MovieDetails";
 import { Cast } from "./Cast/Cast";
 import { Reviews } from "./Reviews/Reviews";
-
+import { NotFound } from "./Error/NotFound";
 
 export const App = () => {
-
-
 
   return (
     <Routes>
@@ -22,6 +20,7 @@ export const App = () => {
           <Route path="reviews" element={<Reviews />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound></NotFound>}></Route>
     </Routes>
   );
 };
