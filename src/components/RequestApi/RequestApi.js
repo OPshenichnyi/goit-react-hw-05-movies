@@ -3,13 +3,16 @@ import axios from "axios";
 const api_key = '90ae104277ae6d98152a93ab1cd40893'
 
 // Function return a list trend films one day
-export function trendingGetAPI() {
+export async function trendingGetAPI() {
+    const controllerTrend = new AbortController();
+
     const API_URL = 'https://api.themoviedb.org/3/trending/all/day?';
-    return axios.get(
+    return await axios.get(
         API_URL, {
             params: {
                 api_key,
-            }
+            },
+            signal: controllerTrend.signal
         }
     )
 }

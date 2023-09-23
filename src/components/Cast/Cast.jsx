@@ -1,7 +1,7 @@
 import { creditsFilmGetAPI } from "components/RequestApi/RequestApi"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { NotFound } from "components/Error/NotFound"
+import NotFound from "components/Error/NotFound"
 
 
 export const Cast = () => {
@@ -39,3 +39,5 @@ export const Cast = () => {
     </div>
   )
 }
+
+export default Cast

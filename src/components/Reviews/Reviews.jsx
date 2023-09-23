@@ -1,10 +1,10 @@
 import { reviewsFilmGetAPI } from "components/RequestApi/RequestApi"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { NotFound } from "components/Error/NotFound"
+import NotFound from "components/Error/NotFound"
 
 
-export const Reviews = () => {
+const Reviews = () => {
   const { id } = useParams();
   const [reviwes, setReviwes] = useState([]);
   const [error, setError] = useState(false);
@@ -35,3 +35,5 @@ export const Reviews = () => {
     </div>
   )
 }
+
+export default Reviews;

@@ -2,9 +2,9 @@ import { detailsFilmGetAPI } from "components/RequestApi/RequestApi";
 import { useEffect, useState, useRef } from "react";
 import {  NavLink, Outlet, useLocation, useNavigate, useParams } from "react-router-dom"
 import { CardInfoFilms, Container, Link, LinkContainer } from "./MovieDetails.styled";
-import { NotFound } from "components/Error/NotFound";
+import NotFound from "components/Error/NotFound";
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { id } = useParams()
   const [title, setTitle] = useState('')
   const [overview, setOverview] = useState('')
@@ -50,3 +50,5 @@ export const MovieDetails = () => {
     </Container>
   )
 }
+
+export default MovieDetails;

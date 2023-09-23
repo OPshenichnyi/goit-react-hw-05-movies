@@ -1,6 +1,6 @@
 import { Wraperr, Center, Comback } from "./NotFound.styled"
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <Wraperr>
       <div id="stars">
@@ -14,3 +14,5 @@ export const NotFound = () => {
     </Wraperr>
   )
 }
+
+export default NotFound;

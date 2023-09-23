@@ -2,7 +2,7 @@ import { trendingGetAPI } from "components/RequestApi/RequestApi"
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export const Home = () => {
+const Home = () => {
   const [trendFilm, setTrendFilm] = useState([])
   const location = useLocation()
 
@@ -12,7 +12,8 @@ export const Home = () => {
     if (trendFilm.length === 0) {
       trendingGetAPI().then(response => { setTrendFilm(response.data.results) })
     }
-   return
+    return
+
 
   }, [trendFilm])
   
@@ -24,3 +25,5 @@ export const Home = () => {
     </ul>
   )
 }
+
+export default Home; 

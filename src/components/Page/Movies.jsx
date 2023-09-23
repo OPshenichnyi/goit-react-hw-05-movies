@@ -4,9 +4,9 @@ import { searchGetAPI } from "components/RequestApi/RequestApi";
 import { Formik, Form, Field } from "formik";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { NotFound } from "components/Error/NotFound";
+import NotFound from "components/Error/NotFound";
 
-export const Movies = () => {
+const Movies = () => {
   
   const [searchParams, setSearchParams] = useSearchParams()
   const search = searchParams.get("query") ?? ""
@@ -36,7 +36,7 @@ export const Movies = () => {
     <>
       <Formik
           initialValues={{
-          query: `${search}`,
+          query: ``,
           
         }}
 
@@ -50,7 +50,7 @@ export const Movies = () => {
           }}
       >
           <Form>
-              <Field id="query" name="query" placeholder="Battman" />
+              <Field id="query" name="query" placeholder="" />
               <button type="submit">Submit</button>
           </Form>
       </Formik>
@@ -60,3 +60,5 @@ export const Movies = () => {
     </>
   )
 }
+
+export default Movies
